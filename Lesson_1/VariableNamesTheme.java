@@ -115,7 +115,7 @@ public class VariableNamesTheme {
         System.out.println("Путь до файла: " + pathToFile);
 
         //количество чисел в каждой строке
-        int NumbersInEachLine = 4;
+        int numbersInEachLine = 4;
         System.out.println("Количество чисел в каждой строке: " + NumbersInEachLine);
 
         System.out.println("\n2.boolean-переменные");
@@ -125,7 +125,7 @@ public class VariableNamesTheme {
         System.out.println("Сотни равны? " + isHundredEqual);
 
         //компьютер включен?
-        boolean IsPCOn = true;
+        boolean isPcOn = true;
         System.out.println("Компьютер включен? " + IsPCOn);
 
         //есть равные цифры?
@@ -163,7 +163,7 @@ public class VariableNamesTheme {
         System.out.println("Старый universally unique identifier: " + oldUuid);
 
         //производитель оперативной памяти
-        String dram = "Hynix";
+        String ramDeveloper = "Hynix";
         System.out.println("Производитель оперативной памяти: " + dram);
 
         //емкость жесткого диска
