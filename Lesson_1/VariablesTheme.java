@@ -22,16 +22,16 @@ public class VariablesTheme {
         System.out.println("\n2. Расчет стоимости товара со скидкой");
         int penPrice = 100;
         int bookPrice = 200;
-        System.out.println("Общая стоимость товаров без скидки: " + (penPrice + bookPrice));
-        System.out.println("Сумма скидки: " + ((penPrice + bookPrice) * 0.11));
-        System.out.println("Общая стоимость товаров со скидкой: " 
-                + ((penPrice + bookPrice) * 0.89));
+        int priceSum = penPrice + bookPrice;
+        System.out.println("Общая стоимость товаров без скидки: " + priceSum);
+        System.out.println("Сумма скидки: " + (priceSum * 0.11));
+        System.out.println("Общая стоимость товаров со скидкой: " + (priceSum * 0.89));
 
         System.out.println("\n3.Вывод слова JAVA");
-        System.out.println("   J" + "   a" + "  v   " + "   v" + "  a");
-        System.out.println("   J" + "  a" + " a" + "  v " + "   v" + "  a " + "a");
-        System.out.println("J  " + "J "+ "aaaaa " + " V " + " V " + " aaaaa");
-        System.out.println(" JJ " + "a" + "    " + " a " + "  V " + " a   " + "  a");
+        System.out.println("   J   a  v      v  a");
+        System.out.println("   J  a a  v    v  a a");
+        System.out.println("J  J aaaaa  V  V  aaaaa");
+        System.out.println(" JJ a     a   V  a     a");
 
         System.out.println("\nВывод min и max значений целых числовых типов");
         //byte short long int
@@ -55,39 +55,39 @@ public class VariablesTheme {
         System.out.println("\n5.Перестановка значений переменных");
         int a = 2;
         int b = 5;
-        int c = a;
+        int swap = a;
 
         System.out.println("Перестановка с помощью третьей переменной:");
         System.out.println("Исходные значения переменных: a = " + a + ", b = " + b);
         a = b;
-        b = c;
+        b = swap;
         System.out.println("Новые значения переменных: a = " + a + ", b = " + b);
 
         System.out.println("\nПерестановка с помощью арифметической операции:");
         System.out.println("Исходные значения переменных: a = " + a + ", b = " + b);
-        a = a + b;
+        a += b;
         b = a - b;
-        a = a - b;
+        a -= b;
         System.out.println("Новые значения переменных: a = " + a + ", b = " + b);
 
         System.out.println("\nПерестановка с помощью побитовой операции:");
         System.out.println("Исходные значения переменных: a = " + a + ", b = " + b);
-        a = a ^ b;
-        b = b ^ a;
-        a = a ^ b;
+        a ^= b;
+        b ^= a;
+        a ^= b;
         System.out.println("Новые значения переменных: a = " + a + ", b = " + b);
 
         System.out.println("\n6.Вывод символов и их кодов");
-        char firstSymbol = '$';
-        char secondSymbol = '*';
-        char thirdSymbol = '@';
-        char fourthSymbol = '|';
-        char fifthSymbol = '~';
-        System.out.println("Коду " + (int)firstSymbol + " соответствует символ " + firstSymbol
-                + "\nКоду " + (int)secondSymbol + " соответствует символ " + secondSymbol
-                + "\nКоду " + (int)thirdSymbol + " соответствует символ " + thirdSymbol
-                + "\nКоду " + (int)fourthSymbol + " соответствует символ " + fourthSymbol
-                + "\nКоду " + (int)fifthSymbol + " соответствует символ " + fifthSymbol);
+        char dollar = '$';
+        char asterisk = '*';
+        char at = '@';
+        char verticalBar = '|';
+        char tilde = '~';
+        System.out.println("Коду " + (int) dollar + " соответствует символ " + dollar
+                + "\nКоду " + (int) asterisk + " соответствует символ " + asterisk
+                + "\nКоду " + (int) at + " соответствует символ " + at
+                + "\nКоду " + (int) verticalBar + " соответствует символ " + verticalBar
+                + "\nКоду " + (int) tilde + " соответствует символ " + tilde);
 
         System.out.println("\n7.Вывод в консоль ASCII-арта Дюка");
         char slash = '\\';
@@ -95,29 +95,29 @@ public class VariablesTheme {
         char openBraket = '(';
         char closeBraket = ')';
         char underline = '_';
-        System.out.println("    " + backSlash + slash + "    " + "\n" + "   " + backSlash
-                + "  " + slash + "   " + "\n" + "  " + backSlash + underline + openBraket
-                + " " + closeBraket + slash + "   " + "\n" + " " + backSlash + "      "
-                + slash + "  " + "\n" + backSlash + underline + underline + underline
+        System.out.println("    " + backSlash + slash + "\n   " + backSlash
+                + "  " + slash + "\n  " + backSlash + underline + openBraket
+                + " " + closeBraket + slash + "\n " + backSlash + "      "
+                + slash + "\n" + backSlash + underline + underline + underline
                 + underline + backSlash + slash + underline + underline + slash);
 
         System.out.println("\n8.Вывод количества сотен, десятков и единиц числа");
         int num = 123;
-        int numHundreds = 123 / 100;
-        int numTens = 123 % 100 / 10;
-        int numOnes = 123 % 10;
-        int numSum = numHundreds + numTens + numOnes;
-        int numProd = numHundreds + numTens + numOnes;
-        System.out.println("Число 123 содержит:" + "\n  сотен - " + numHundreds + 
-                "\n  десятков - " + numTens + "\n  единиц - " + numOnes);
+        int hundreds = num / 100;
+        int tens = num % 100 / 10;
+        int ones = num % 10;
+        int numSum = hundreds + tens + ones;
+        int numProd = hundreds * tens * ones;
+        System.out.println("Число " + num  + " содержит:" + "\n  сотен - " + hundreds + 
+                "\n  десятков - " + tens + "\n  единиц - " + ones);
         System.out.println("Сумма его цифр = " + numSum);
-        System.out.println("Произведение цфир = " + numProd);
+        System.out.println("Произведение цифр = " + numProd);
 
         System.out.println("\n9.Вывод времени");
         int timeAmount = 86399;
-        int hours = timeAmount / 3600;
-        int minutes = (timeAmount / 60) % 60;
-        int seconds = timeAmount % 60;
-        System.out.println(hours + ":" + minutes + ":" + seconds);
+        int hh = timeAmount / 3600;
+        int mm = (timeAmount / 60) % 60;
+        int ss = timeAmount % 60;
+        System.out.println(hh + ":" + mm + ":" + ss);
     }
 }
