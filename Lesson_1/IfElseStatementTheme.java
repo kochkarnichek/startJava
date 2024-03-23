@@ -45,50 +45,51 @@ public class IfElseStatementTheme {
 
         System.out.println("\n3. Проверка числа");
         int num = -435;
+        String evenOrOdd = "";
+        String positiveOrNegative = "";
         if (num == 0) {
             System.out.println(num + " является нулем");
-        } else if (num > 0) {
-            if (num % 2 == 0) {
-                System.out.println(num + " является положительным и четным");
-            } else {
-                System.out.println(num + " является положительным и нечетным");
-            }
         } else {
-            if (num % 2 == 0) {
-                System.out.println(num + " является отрицательным и четным");
+            if (num > 0) {
+                positiveOrNegative = "положительным и ";
             } else {
-                System.out.println(num + " является отрицательным и нечетным");
+                positiveOrNegative = "отрицательным и ";
             }
+            if (num % 2 == 0) {
+                evenOrOdd = "четным";
+            } else {
+                evenOrOdd = "нечетным";
+            }
+            System.out.println(num + " является " + positiveOrNegative + evenOrOdd);
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int firstNum = 456;
-        int secondNum = 789;
-        int firstNumHundreds = firstNum / 100;
-        int firstNumTens = firstNum % 100 / 10;
-        int firstNumOnes = firstNum % 10;
-        int secondNumHundreds = secondNum / 100;
-        int secondNumTens = secondNum % 100 / 10;
-        int secondNumOnes = secondNum % 10;
+        int c = 456;
+        int d = 789;
+        int cHundreds = c / 100;
+        int cTens = c % 100 / 10;
+        int cOnes = c % 10;
+        int dHundreds = d / 100;
+        int dTens = d % 100 / 10;
+        int dOnes = d % 10;
+        boolean areDigitsEqual = (cHundreds == dHundreds || cTens == dTens || cOnes == dOnes);
 
-        if (firstNumHundreds == secondNumHundreds || firstNumTens == secondNumTens 
-            || firstNumOnes == secondNumOnes) {
-            System.out.println("В числах " + firstNum + " и " + 
-                secondNum + " есть одинаковые цифры :");
-            if (firstNumHundreds == secondNumHundreds) {
-                System.out.println("Совпадают " + firstNumHundreds + " и " 
-                    + secondNumHundreds + " в третьем разряде");
+        if (areDigitsEqual) {
+            System.out.println("В числах " + c + " и " + d + " есть одинаковые цифры :");
+            if (cHundreds == dHundreds) {
+                System.out.println("Совпадают " + cHundreds + " и " 
+                    + dHundreds + " в третьем разряде");
             }
-            if (firstNumTens == secondNumTens) {
-                System.out.println("Совпадают " + firstNumTens + " и " 
-                    + secondNumTens + " во втором разряде");
+            if (cTens == dTens) {
+                System.out.println("Совпадают " + cTens + " и " 
+                    + dTens + " во втором разряде");
             }
-            if (firstNumOnes == secondNumOnes) {
-                System.out.println("Совпадают " + firstNumOnes + " и " 
-                    + secondNumOnes + " в первом разряде");
+            if (cOnes == dOnes) {
+                System.out.println("Совпадают " + cOnes + " и " 
+                    + dOnes + " в первом разряде");
             }
         } else {
-            System.out.println("В числах " + firstNum + " и " + secondNum + " нет одинаковых цифр");
+            System.out.println("В числах " + c + " и " + d + " нет одинаковых цифр");
         }
 
         System.out.println("\n5. Определение символа по его коду");
@@ -105,25 +106,21 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int deposit = 301000;
+        double rate = 0.0d;
         if (deposit < 100000) {
-            System.out.println("Сумма вклада: " + deposit + 
-                "\nСумма начисленного %: " + (deposit * 0.05) + 
-                "\nИтоговая сумма с % " + (deposit * 1.05));
+            rate = 0.05;
         } else if (deposit >= 100000 && deposit < 300000) {
-            System.out.println("Сумма вклада: " + deposit + 
-                "\nСумма начисленного %: " + (deposit * 0.07) + 
-                "\nИтоговая сумма с % " + (deposit * 1.07));
+            rate = 0.07;
         } else {
-            System.out.println("Сумма вклада: " + deposit + 
-                "\nСумма начисленного %: " + (deposit * 0.10) + 
-                "\nИтоговая сумма с %: " + (deposit * 1.10));
+            rate = 0.10;
         }
+        System.out.println("Сумма вклада: " + deposit 
+            + "\nСумма начисленного %: " + (deposit * rate) 
+            + "\nИтоговая сумма с %: " + (deposit * (1 + rate)));
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercentage = 59;
         int historyGrade = 0;
-        int programmingPercentage = 92;
-        int programmingGrade = 0;
 
         if (historyPercentage <= 60) {
             historyGrade = 2;
@@ -134,6 +131,9 @@ public class IfElseStatementTheme {
         } else {
             historyGrade = 5;
         }
+
+        int programmingPercentage = 92;
+        int programmingGrade = 0;
 
         if (programmingPercentage <= 60) {
             programmingGrade = 2;
@@ -147,9 +147,10 @@ public class IfElseStatementTheme {
 
         int gpa = (historyGrade + programmingGrade) / 2;
         int averagePercentage = (historyPercentage + programmingPercentage) / 2;
-        System.out.println("История: " + historyGrade + "\nПрограммирование: " + programmingGrade + 
-            "\nСредний балл по предметам: " + gpa + "\nСредний процент по предметам " + 
-            averagePercentage);
+        System.out.println("История: " + historyGrade 
+            + "\nПрограммирование: " + programmingGrade 
+            + "\nСредний балл по предметам: " + gpa 
+            + "\nСредний процент по предметам " + averagePercentage);
 
         System.out.println("\n8. Расчет годовой прибыли");
         int earnings = 13000;
@@ -161,6 +162,5 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Прибыль за год: " + annualProfit + " руб.");
         }
-
     }
 }
