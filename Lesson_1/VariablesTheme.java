@@ -22,10 +22,10 @@ public class VariablesTheme {
         System.out.println("\n2. Расчет стоимости товара со скидкой");
         int penPrice = 100;
         int bookPrice = 200;
-        int priceSum = penPrice + bookPrice;
-        System.out.println("Общая стоимость товаров без скидки: " + priceSum);
-        System.out.println("Сумма скидки: " + (priceSum * 0.11));
-        System.out.println("Общая стоимость товаров со скидкой: " + (priceSum * 0.89));
+        int totalPrice = penPrice + bookPrice;
+        System.out.println("Общая стоимость товаров без скидки: " + totalPrice);
+        System.out.println("Сумма скидки: " + (totalPrice * 0.11));
+        System.out.println("Общая стоимость товаров со скидкой: " + (totalPrice * 0.89));
 
         System.out.println("\n3.Вывод слова JAVA");
         System.out.println("   J   a  v      v  a");
@@ -95,10 +95,11 @@ public class VariablesTheme {
         char openBraket = '(';
         char closeBraket = ')';
         char underline = '_';
-        System.out.println("    " + backSlash + slash + "\n   " + backSlash
-                + "  " + slash + "\n  " + backSlash + underline + openBraket
-                + " " + closeBraket + slash + "\n " + backSlash + "      "
-                + slash + "\n" + backSlash + underline + underline + underline
+        System.out.println("    " + backSlash + slash 
+                + "\n   " + backSlash + "  " + slash 
+                + "\n  " + backSlash + underline + openBraket + " " + closeBraket + slash 
+                + "\n " + backSlash + "      " + slash 
+                + "\n" + backSlash + underline + underline + underline
                 + underline + backSlash + slash + underline + underline + slash);
 
         System.out.println("\n8.Вывод количества сотен, десятков и единиц числа");
@@ -106,12 +107,12 @@ public class VariablesTheme {
         int hundreds = num / 100;
         int tens = num % 100 / 10;
         int ones = num % 10;
-        int numSum = hundreds + tens + ones;
-        int numProd = hundreds * tens * ones;
+        int sumNum = hundreds + tens + ones;
+        int prodNum = hundreds * tens * ones;
         System.out.println("Число " + num  + " содержит:" + "\n  сотен - " + hundreds + 
                 "\n  десятков - " + tens + "\n  единиц - " + ones);
-        System.out.println("Сумма его цифр = " + numSum);
-        System.out.println("Произведение цифр = " + numProd);
+        System.out.println("Сумма его цифр = " + sumNum);
+        System.out.println("Произведение цифр = " + prodNum);
 
         System.out.println("\n9.Вывод времени");
         int timeAmount = 86399;
