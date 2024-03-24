@@ -45,11 +45,11 @@ public class IfElseStatementTheme {
 
         System.out.println("\n3. Проверка числа");
         int num = -435;
-        String evenOrOdd = "";
-        String positiveOrNegative = "";
         if (num == 0) {
             System.out.println(num + " является нулем");
         } else {
+            String evenOrOdd = "";
+            String positiveOrNegative = "";
             if (num > 0) {
                 positiveOrNegative = "положительным и ";
             } else {
@@ -72,21 +72,21 @@ public class IfElseStatementTheme {
         int dHundreds = d / 100;
         int dTens = d % 100 / 10;
         int dOnes = d % 10;
-        boolean areDigitsEqual = (cHundreds == dHundreds || cTens == dTens || cOnes == dOnes);
+        boolean hasEqualDigits = (cHundreds == dHundreds || cTens == dTens || cOnes == dOnes);
 
-        if (areDigitsEqual) {
+        if (hasEqualDigits) {
             System.out.println("В числах " + c + " и " + d + " есть одинаковые цифры :");
             if (cHundreds == dHundreds) {
-                System.out.println("Совпадают " + cHundreds + " и " 
-                    + dHundreds + " в третьем разряде");
+                System.out.println("Совпадают " + cHundreds + " и " +
+                    dHundreds + " в третьем разряде");
             }
             if (cTens == dTens) {
-                System.out.println("Совпадают " + cTens + " и " 
-                    + dTens + " во втором разряде");
+                System.out.println("Совпадают " + cTens + " и " +
+                    dTens + " во втором разряде");
             }
             if (cOnes == dOnes) {
-                System.out.println("Совпадают " + cOnes + " и " 
-                    + dOnes + " в первом разряде");
+                System.out.println("Совпадают " + cOnes + " и " +
+                    dOnes + " в первом разряде");
             }
         } else {
             System.out.println("В числах " + c + " и " + d + " нет одинаковых цифр");
@@ -106,34 +106,31 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int deposit = 301000;
-        double rate = 0.0d;
+        double rate = 0.10;
         if (deposit < 100000) {
             rate = 0.05;
         } else if (deposit >= 100000 && deposit < 300000) {
             rate = 0.07;
-        } else {
-            rate = 0.10;
-        }
-        System.out.println("Сумма вклада: " + deposit 
-            + "\nСумма начисленного %: " + (deposit * rate) 
-            + "\nИтоговая сумма с %: " + (deposit * (1 + rate)));
+        } 
+
+        System.out.println("Сумма вклада: " + deposit +
+            "\nСумма начисленного %: " + (deposit * rate) +
+            "\nИтоговая сумма с %: " + (deposit * (1 + rate)));
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercentage = 59;
-        int historyGrade = 0;
+        int historyGrade = 2;
 
-        if (historyPercentage <= 60) {
-            historyGrade = 2;
-        } else if (historyPercentage > 60 && historyPercentage <= 73) {
+        if (historyPercentage > 60 && historyPercentage <= 73) {
             historyGrade = 3;
         } else if (historyPercentage > 73 && historyPercentage <= 91) {
             historyGrade = 4;
-        } else {
+        } else if (historyPercentage > 91) {
             historyGrade = 5;
         }
 
         int programmingPercentage = 92;
-        int programmingGrade = 0;
+        int programmingGrade = 5;
 
         if (programmingPercentage <= 60) {
             programmingGrade = 2;
@@ -141,16 +138,14 @@ public class IfElseStatementTheme {
             programmingGrade = 3;
         } else if (programmingPercentage > 73 && programmingPercentage <= 91) {
             programmingGrade = 4;
-        } else {
-            programmingGrade = 5;
         }
 
         int gpa = (historyGrade + programmingGrade) / 2;
         int averagePercentage = (historyPercentage + programmingPercentage) / 2;
-        System.out.println("История: " + historyGrade 
-            + "\nПрограммирование: " + programmingGrade 
-            + "\nСредний балл по предметам: " + gpa 
-            + "\nСредний процент по предметам " + averagePercentage);
+        System.out.println("История: " + historyGrade +
+            "\nПрограммирование: " + programmingGrade +
+            "\nСредний балл по предметам: " + gpa +
+            "\nСредний процент по предметам " + averagePercentage);
 
         System.out.println("\n8. Расчет годовой прибыли");
         int earnings = 13000;
