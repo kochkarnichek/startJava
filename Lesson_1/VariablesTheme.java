@@ -83,11 +83,11 @@ public class VariablesTheme {
         char at = '@';
         char verticalBar = '|';
         char tilde = '~';
-        System.out.println("Коду " + (int) dollar + " соответствует символ " + dollar
-                + "\nКоду " + (int) asterisk + " соответствует символ " + asterisk
-                + "\nКоду " + (int) at + " соответствует символ " + at
-                + "\nКоду " + (int) verticalBar + " соответствует символ " + verticalBar
-                + "\nКоду " + (int) tilde + " соответствует символ " + tilde);
+        System.out.println("Коду " + (int) dollar + " соответствует символ " + dollar +
+                "\nКоду " + (int) asterisk + " соответствует символ " + asterisk +
+                "\nКоду " + (int) at + " соответствует символ " + at +
+                "\nКоду " + (int) verticalBar + " соответствует символ " + verticalBar +
+                "\nКоду " + (int) tilde + " соответствует символ " + tilde);
 
         System.out.println("\n7.Вывод в консоль ASCII-арта Дюка");
         char slash = '\\';
@@ -95,12 +95,12 @@ public class VariablesTheme {
         char openBraket = '(';
         char closeBraket = ')';
         char underline = '_';
-        System.out.println("    " + backSlash + slash 
-                + "\n   " + backSlash + "  " + slash 
-                + "\n  " + backSlash + underline + openBraket + " " + closeBraket + slash 
-                + "\n " + backSlash + "      " + slash 
-                + "\n" + backSlash + underline + underline + underline
-                + underline + backSlash + slash + underline + underline + slash);
+        System.out.println("    " + backSlash + slash +
+                "\n   " + backSlash + "  " + slash +
+                "\n  " + backSlash + underline + openBraket + " " + closeBraket + slash +
+                "\n " + backSlash + "      " + slash +
+                "\n" + backSlash + underline + underline + underline +
+                underline + backSlash + slash + underline + underline + slash);
 
         System.out.println("\n8.Вывод количества сотен, десятков и единиц числа");
         int num = 123;
@@ -109,7 +109,7 @@ public class VariablesTheme {
         int ones = num % 10;
         int sumNum = hundreds + tens + ones;
         int prodNum = hundreds * tens * ones;
-        System.out.println("Число " + num  + " содержит:" + "\n  сотен - " + hundreds + 
+        System.out.println("Число " + num  + " содержит:" + "\n  сотен - " + hundreds +
                 "\n  десятков - " + tens + "\n  единиц - " + ones);
         System.out.println("Сумма его цифр = " + sumNum);
         System.out.println("Произведение цифр = " + prodNum);
