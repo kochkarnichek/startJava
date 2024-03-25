@@ -78,15 +78,15 @@ public class IfElseStatementTheme {
             System.out.println("В числах " + c + " и " + d + " есть одинаковые цифры :");
             if (cHundreds == dHundreds) {
                 System.out.println("Совпадают " + cHundreds + " и " +
-                    dHundreds + " в третьем разряде");
+                        dHundreds + " в третьем разряде");
             }
             if (cTens == dTens) {
                 System.out.println("Совпадают " + cTens + " и " +
-                    dTens + " во втором разряде");
+                        dTens + " во втором разряде");
             }
             if (cOnes == dOnes) {
                 System.out.println("Совпадают " + cOnes + " и " +
-                    dOnes + " в первом разряде");
+                        dOnes + " в первом разряде");
             }
         } else {
             System.out.println("В числах " + c + " и " + d + " нет одинаковых цифр");
@@ -114,8 +114,8 @@ public class IfElseStatementTheme {
         } 
 
         System.out.println("Сумма вклада: " + deposit +
-            "\nСумма начисленного %: " + (deposit * rate) +
-            "\nИтоговая сумма с %: " + (deposit * (1 + rate)));
+                "\nСумма начисленного %: " + (deposit * rate) +
+                "\nИтоговая сумма с %: " + (deposit * (1 + rate)));
 
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercentage = 59;
@@ -143,9 +143,9 @@ public class IfElseStatementTheme {
         int gpa = (historyGrade + programmingGrade) / 2;
         int averagePercentage = (historyPercentage + programmingPercentage) / 2;
         System.out.println("История: " + historyGrade +
-            "\nПрограммирование: " + programmingGrade +
-            "\nСредний балл по предметам: " + gpa +
-            "\nСредний процент по предметам " + averagePercentage);
+                "\nПрограммирование: " + programmingGrade +
+                "\nСредний балл по предметам: " + gpa +
+                "\nСредний процент по предметам " + averagePercentage);
 
         System.out.println("\n8. Расчет годовой прибыли");
         int earnings = 13000;
