@@ -25,7 +25,7 @@ public class CyclesTheme {
         int c = -1;
 
         int max = a;
-        if (b > max) {
+        if ( b    > max) {
             max = b;
         } else if (c > max) {
             max = c;
@@ -87,7 +87,7 @@ public class CyclesTheme {
 
         System.out.println("\n6. Отображение геометрических фигур");
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 10; j++) {
+            for ( int j = 0; j  < 10; j++) {
                 System.out.print("*");
             }
             System.out.println();

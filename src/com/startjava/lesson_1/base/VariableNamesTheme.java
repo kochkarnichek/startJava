@@ -81,8 +81,8 @@ public class VariableNamesTheme {
         System.out.println("Пункт меню: " + menuItem);
 
         // стоимость кофе на вынос
-        int toGoCoffePrice = 190;
-        System.out.println("Стоимость кофе на вынос: " + toGoCoffePrice);
+        int toGoCoffeePrice = 190;
+        System.out.println("Стоимость кофе на вынос: " + toGoCoffeePrice);
 
         // дата начала
         String startDate = "15.08.2019";
