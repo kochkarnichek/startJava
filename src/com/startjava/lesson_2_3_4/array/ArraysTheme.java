@@ -9,7 +9,7 @@ public class ArraysTheme {
         calculateFactorial();
         deleteArrayValues();
         printAlphabet();
-        generateUniqueNums();
+        fillUniqueNums();
         playHangman();
     }
 
@@ -19,24 +19,24 @@ public class ArraysTheme {
         System.out.println("До реверса: " + Arrays.toString(numsToReverse));
         int length = numsToReverse.length;
         for (int i = 0; i < length / 2; i++) {
-            int temp = numsToReverse[i];
-            numsToReverse[i] = numsToReverse[length - i - 1];
-            numsToReverse[length - i - 1] = temp;
+            int swap = numsToReverse[i];
+            numsToReverse[i] = numsToReverse[--length];
+            numsToReverse[length] = swap;
         }
         System.out.println("После реверса: " + Arrays.toString(numsToReverse));
     }
 
     public static void calculateFactorial() {
         System.out.println("\n2. Вычисление факториала");
-        int[] numsToFactorial = new int[10];
-        int length = numsToFactorial.length;
+        int[] multipliers = new int[10];
+        int length = multipliers.length;
         for (int i = 0; i < length; i++) {
-            numsToFactorial[i] = i;
+            multipliers[i] = i;
         }
         int factorial = 1;
         for (int i = 1; i <= length - 2; i++) {
-            System.out.print((i == 1 ? "" : " * ") + numsToFactorial[i]);
-            factorial *= numsToFactorial[i];
+            System.out.print((i == 1 ? "" : " * ") + multipliers[i]);
+            factorial *= multipliers[i];
         }
         System.out.print(" = " + factorial);
     }
@@ -49,14 +49,9 @@ public class ArraysTheme {
             randomNums[i] = Math.random();
         }
         System.out.println("Исходный массив:");
-        for (int i = 0; i < length; i++) {
-            System.out.printf("%10.3f", randomNums[i]);
-            if ((i + 1) % 8 == 0) {
-                System.out.println();
-            }
-        }
-        int middle = length / 2;
-        double middleNum = randomNums[middle];
+        printArray(randomNums);
+
+        double middleNum = randomNums[length / 2];
         int count = 0;
         for (int i = 0; i < length; i++) {
             if (randomNums[i] > middleNum) {
@@ -65,13 +60,18 @@ public class ArraysTheme {
             }
         }
         System.out.println("\nИзмененный массив:");
-        for (int i = 0; i < length; i++) {
-            System.out.printf("%10.3f", randomNums[i]);
-            if ((i + 1) % 8 == 0) {
+        printArray(randomNums);
+        System.out.println("\nКоличество обнуленных ячеек: " + count);
+    }
+
+    public static void printArray(double[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.printf("%10.3f", array[i]);
+            int middleIndex = array.length / 2;
+            if ((i + 1) % middleIndex == 0) {
                 System.out.println();
             }
         }
-        System.out.println("\nКоличество обнуленных ячеек: " + count);
     }
 
     public static void printAlphabet() {
@@ -89,29 +89,29 @@ public class ArraysTheme {
         }
     }
 
-    public static void generateUniqueNums() {
+    public static void fillUniqueNums() {
         System.out.println("\n5. Заполнение массива уникальными числами");
-        int[] randIntNums = new int[30];
-        int length = randIntNums.length;
+        int[] uniqueNums = new int[30];
+        int length = uniqueNums.length;
         for (int i = 0; i < length; i++) {
             boolean isUniqueNum;
             do {
-                randIntNums[i] = (int) (Math.random() * (40)) + 60;
+                uniqueNums[i] = (int) (Math.random() * (40)) + 60;
                 isUniqueNum = true;
                 for (int j = 0; j < i; j++) {
-                    if (randIntNums[i] == randIntNums[j]) {
+                    if (uniqueNums[i] == uniqueNums[j]) {
                         isUniqueNum = false;
                         break;
                     }
                 }
             } while (!isUniqueNum);
         }
-        Arrays.sort(randIntNums);
+        Arrays.sort(uniqueNums);
         for (int i = 0; i < length; i++) {
             if (i % 10 == 0 && i != 0) {
                 System.out.println();
             }
-            System.out.print(randIntNums[i] + " ");
+            System.out.print(uniqueNums[i] + " ");
         }
     }
 
