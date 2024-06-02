@@ -66,9 +66,9 @@ public class ArraysTheme {
 
     public static void printArray(double[] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.printf("%10.3f", array[i]);
+            System.out.printf("%6.3f", array[i]);
             int middleIndex = array.length / 2;
-            if ((i + 1) % middleIndex == 0) {
+            if ((i + 1) % (middleIndex + 1) == 0) {
                 System.out.println();
             }
         }
@@ -119,6 +119,13 @@ public class ArraysTheme {
         System.out.println("\n\n6. Игра Виселица");
         String[] wordsToGuess = {"КОШКА", "КРОШКА", "КАРТОШКА", "БЭКЕНД", "СУРИКАТ",
                 "ГОЛАНГ", "КОГТЕТОЧКА", "МЫШЕЛОВКА", "ГАМАЮН"};
+        String[] gallow = {" _______",
+                "|   |",
+                "|   O ",
+                "|  / \\",
+                "|   |",
+                "|  / \\"};
+
         System.out.println("Попробуйте угадать слово, не оказавшись на виселице");
 
         String secretWord = wordsToGuess[(int) (Math.random() * wordsToGuess.length)];
@@ -129,7 +136,7 @@ public class ArraysTheme {
         Scanner scan = new Scanner(System.in);
         boolean isPlaying = true;
         int counterUsedSymbols = 0;
-        int triesTotal = 7;
+        int triesTotal = 6;
         int tries = 0;
         int triesLeft = triesTotal - tries;
         int unluckyTries = 0;
@@ -174,7 +181,12 @@ public class ArraysTheme {
                         }
                     }
                 }
-                printGallow(unluckyTries);
+
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < unluckyTries; i++) {
+                    sb.append(gallow[i]).append("\n ");
+                }
+                System.out.println(sb);
 
                 isPlaying = false;
                 if (searchLetter(wordMask, '_', wordMask.length) == -1) {
@@ -207,69 +219,5 @@ public class ArraysTheme {
             }
         }
         System.out.println();
-    }
-
-    public static void printGallow(int unluckyTries) {
-        switch (unluckyTries) {
-            case 1:
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                break;
-            case 2:
-                System.out.println(" _______");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                break;
-            case 3:
-                System.out.println(" _______");
-                System.out.println("|   |");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                break;
-            case 4:
-                System.out.println(" _______");
-                System.out.println("|   |");
-                System.out.println("|   O ");
-                System.out.println("|");
-                System.out.println("|");
-                System.out.println("|");
-                break;
-            case 5:
-                System.out.println(" _______");
-                System.out.println("|   |");
-                System.out.println("|   O ");
-                System.out.println("|  / \\");
-                System.out.println("|");
-                System.out.println("|");
-                break;
-            case 6:
-                System.out.println(" _______");
-                System.out.println("|   |");
-                System.out.println("|   O ");
-                System.out.println("|  / \\");
-                System.out.println("|   |");
-                System.out.println("|");
-                break;
-            case 7:
-                System.out.println(" _______");
-                System.out.println("|   |");
-                System.out.println("|   O ");
-                System.out.println("|  / \\");
-                System.out.println("|   |");
-                System.out.println("|  / \\");
-                break;
-            default:
-                System.out.print("Вы угадали букву!\n");
-                break;
-        }
     }
 }
