@@ -137,22 +137,29 @@ public class ArraysTheme {
         boolean isPlaying = true;
         int counterUsedSymbols = 0;
         int triesTotal = 6;
-        int tries = 0;
-        int triesLeft = triesTotal - tries;
+        int currTry = 0;
+        int triesLeft = triesTotal - currTry;
         int unluckyTries = 0;
-        char[] symbolsArray = new char[33];
+        char[] usedSymbols = new char[33];
 
         do {
-            printLetters(symbolsArray, counterUsedSymbols, wordMask);
+            printLetters(usedSymbols, counterUsedSymbols, wordMask);
+            StringBuilder sb = new StringBuilder();
             for (char m : wordMask) {
-                System.out.print(m + " ");
+                sb.append(m).append(" ");
             }
+            System.out.println(sb);
             System.out.print("\nВведите любую букву: ");
             char playerGuess = Character.toUpperCase(scan.next().charAt(0));
+            for (char usedSymbol : usedSymbols) {
+                if (playerGuess == usedSymbol) {
+                    System.out.println("Этот символ уже использован");
+                }
+            }
             boolean isFound = false;
-            int toIndex = counterUsedSymbols + 1;
-            if (searchLetter(symbolsArray, playerGuess, toIndex) == -1) {
-                symbolsArray[counterUsedSymbols++] = playerGuess;
+            int index = counterUsedSymbols + 1;
+            if (searchLetter(usedSymbols, playerGuess, index) == -1) {
+                usedSymbols[counterUsedSymbols++] = playerGuess;
                 for (int i = 0; i < chosenWord.length; i++) {
                     if (chosenWord[i] == playerGuess) {
                         isFound = true;
@@ -160,19 +167,19 @@ public class ArraysTheme {
                     }
                 }
                 if (isFound) {
-                    tries++;
+                    currTry++;
                     unluckyTries--;
                     if (unluckyTries < 0) {
                         unluckyTries = 0;
                     }
-                    if (tries >= triesTotal) {
-                        tries = triesTotal;
+                    if (currTry >= triesTotal) {
+                        currTry = triesTotal;
                     }
                 } else {
-                    if (Character.isDigit(playerGuess) || (playerGuess >= 'A' && playerGuess <= 'Z')) {
+                    if (!Character.toString(playerGuess).matches("[а-яА-Я]")) {
                         System.out.println("Неверный символ! Используйте только кириллицу");
                     } else {
-                        tries++;
+                        currTry++;
                         unluckyTries++;
                         if (triesLeft > 0) {
                             System.out.printf("\nУ вас осталось %d попыток\n", triesLeft - unluckyTries);
@@ -181,13 +188,10 @@ public class ArraysTheme {
                         }
                     }
                 }
-
-                StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < unluckyTries; i++) {
                     sb.append(gallow[i]).append("\n ");
+                    System.out.print(sb);
                 }
-                System.out.println(sb);
-
                 isPlaying = false;
                 if (searchLetter(wordMask, '_', wordMask.length) == -1) {
                     System.out.println("\nВы отгадали слово " + secretWord);
@@ -200,18 +204,9 @@ public class ArraysTheme {
         } while (isPlaying);
     }
 
-    private static int searchLetter(char[] array, char elementToSearch, int toIndex) {
-        for (int i = 0; i < toIndex; i++) {
-            if (array[i] == elementToSearch) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     private static void printLetters(char[] array, int index, char[] wordMask) {
         if (index > 0) {
-            System.out.print("\nВы использовали буквы: ");
+            System.out.print("\nИспользованы буквы: ");
         }
         for (int i = 0; i < index; i++) {
             if ((searchLetter(wordMask, array[i], wordMask.length) == -1)) {
@@ -219,5 +214,14 @@ public class ArraysTheme {
             }
         }
         System.out.println();
+    }
+
+    private static int searchLetter(char[] array, char elementToSearch, int index) {
+        for (int i = 0; i < index; i++) {
+            if (array[i] == elementToSearch) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
