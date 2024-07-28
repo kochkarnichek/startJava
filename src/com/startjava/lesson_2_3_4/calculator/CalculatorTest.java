@@ -10,24 +10,19 @@ public class CalculatorTest {
         do {
             if (choice.equals("yes")) {
                 System.out.print("\nВведите математическое выражение: ");
-                String input = scan.nextLine().trim();
-                double result = Calculator.calculate(input);
-                printResult(input, result);
-                scan.nextLine();
-            }
-            System.out.println("\nХотите продолжить вычисления? [yes / no]: ");
-            choice = scan.nextLine().toLowerCase();
-            if (choice.equals("no")) {
-                System.out.println("Калькулятор завершил работу");
+                String expression = scan.nextLine().trim();
+                double result = Calculator.calculate(expression);
+                printResult(expression, result);
+                System.out.print("\nХотите продолжить вычисления? [yes / no]: ");
             } else {
                 System.out.println("Введите корректный ответ [yes / no]:");
             }
+            choice = scan.nextLine().toLowerCase();
         } while (!choice.equals("no"));
     }
 
     public static void printResult(String input, double result) {
-        System.out.print(input + " = ");
         DecimalFormat df = new DecimalFormat("#####.###");
-        System.out.print(df.format(result));
+        System.out.print(input + " = " + df.format(result));
     }
 }
