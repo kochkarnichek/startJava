@@ -7,9 +7,9 @@ public class Calculator {
 
     public static double calculate(String input) {
         String[] args = input.split(" ");
-        int a = Integer.parseInt(args[0]);
-        int b = Integer.parseInt(args[2]);
-        String sign = args[1];
+        a = Integer.parseInt(args[0]);
+        b = Integer.parseInt(args[2]);
+        sign = args[1];
         return switch (sign) {
             case "+" -> a + b;
             case "-" -> a - b;
