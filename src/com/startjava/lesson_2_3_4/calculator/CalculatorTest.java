@@ -17,12 +17,12 @@ public class CalculatorTest {
             } else {
                 System.out.println("Введите корректный ответ [yes / no]:");
             }
-            choice = scan.nextLine().toLowerCase();
+            choice = scan.nextLine().toLowerCase().trim();
         } while (!choice.equals("no"));
     }
 
     public static void printResult(String input, double result) {
         DecimalFormat df = new DecimalFormat("#####.###");
-        System.out.print(input + " = " + df.format(result));
+        System.out.print(input.replaceAll("\\s+"," ") + " = " + df.format(result));
     }
 }
