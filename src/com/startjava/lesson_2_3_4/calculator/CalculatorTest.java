@@ -4,25 +4,32 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CalculatorTest {
+    private static final String YES = "yes";
+    private static final String NO = "no";
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String choice = "yes";
         do {
-            if (choice.equals("yes")) {
-                System.out.print("\nВведите математическое выражение: ");
-                String expression = scan.nextLine().trim();
-                double result = Calculator.calculate(expression);
-                printResult(expression, result);
-                System.out.print("\nХотите продолжить вычисления? [yes / no]: ");
-            } else {
-                System.out.println("Введите корректный ответ [yes / no]:");
+            try {
+                if (choice.equals(YES)) {
+                    System.out.print("\nВведите математическое выражение: ");
+                    String expression = scan.nextLine().trim();
+                    double result = Calculator.calculate(expression);
+                    printResult(expression, result);
+                    System.out.print("\nХотите продолжить вычисления? [yes / no]: ");
+                } else {
+                    System.out.println("Введите корректный ответ [yes / no]:");
+                }
+                choice = scan.nextLine().toLowerCase().trim();
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
             }
-            choice = scan.nextLine().toLowerCase().trim();
-        } while (!choice.equals("no"));
+        } while (!choice.equals(NO));
     }
 
-    public static void printResult(String input, double result) {
+    public static void printResult(String inputExpression, double result) {
         DecimalFormat df = new DecimalFormat("#####.###");
-        System.out.print(input.replaceAll("\\s+"," ") + " = " + df.format(result));
+        System.out.print(inputExpression.replaceAll("\\s+", " ") + " = " + df.format(result));
     }
 }
