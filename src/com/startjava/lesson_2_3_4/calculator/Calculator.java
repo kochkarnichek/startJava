@@ -1,6 +1,9 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
+    private Calculator() {
+    }
+
     private static final int EXPRESSION_LENGTH = 3;
 
     public static double calculate(String input) {
