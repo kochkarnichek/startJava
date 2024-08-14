@@ -1,10 +1,10 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
+    private static final int EXPRESSION_LENGTH = 3;
+
     private Calculator() {
     }
-
-    private static final int EXPRESSION_LENGTH = 3;
 
     public static double calculate(String input) {
         String[] args = input.split(" +");
